@@ -1,0 +1,25 @@
+<h2><%= @klass.name %></h2>
+
+<div class="btn-group pull-right">
+  <%= link_to "Edit Class", edit_klass_path, :class => "btn btn-primary" %>
+  <%= link_to "List All", klasses_path, :class => "btn" %>
+  <%= link_to "New Class", new_klass_path, :class => "btn" %>
+</div>
+
+<div class="row">
+  <div class="span12">
+    <div class="well">
+      <h3>Details</h3>
+      <ul>
+        <li><strong>Shift:</strong> <%= @klass.shift %></li>
+        <li><strong>Term:</strong> <%= @klass.term %></li>
+        <li><strong>Year:</strong> <%= @klass.year %></li>
+      </ul>
+      <div class="pull-right">
+        <span>Created at <%= @klass.created_at %></span>
+        <span>Updated at <%= @klass.updated_at %></span>
+      </div>
+    </div>
+  </div>
+</div>
+

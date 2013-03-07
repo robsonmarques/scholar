@@ -2,7 +2,7 @@ class Subject < ActiveRecord::Base
   belongs_to :klass
   belongs_to :teacher
 
-  attr_accessible :field, :name
+  attr_accessible :name
 
-  validates :name, :field, :klass, :teacher, :presence => true
+  validates :name, :klass, :teacher, :presence => true
 end
