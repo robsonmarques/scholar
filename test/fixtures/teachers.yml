@@ -1,0 +1,11 @@
+one:
+  name: Homer Simpson
+  age: 42
+  gender: male
+  email: homer.simpson@email.com
+
+two:
+  name: Doug Funny
+  age: 16
+  gender: male
+  email: doug.funny@email.com
