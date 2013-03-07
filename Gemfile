@@ -7,6 +7,7 @@ group :development do
 end
 
 group :test do
+  gem 'shoulda'
   gem 'capybara',     '~> 2.0.2'
   gem 'database_cleaner'
 end
