@@ -1,9 +1,13 @@
-<h2><%= @klass.name %></h2>
+<div class="row">
+  <h2 class="span8"><%= @klass.name %></h2>
 
-<div class="btn-group pull-right">
-  <%= link_to "Edit Class", edit_klass_path, :class => "btn btn-primary" %>
-  <%= link_to "List All", klasses_path, :class => "btn" %>
-  <%= link_to "New Class", new_klass_path, :class => "btn" %>
+  <div class="span4">
+    <div class="btn-group pull-right">
+      <%= link_to "Edit Class", edit_klass_path, :class => "btn btn-primary" %>
+      <%= link_to "List All", klasses_path, :class => "btn" %>
+      <%= link_to "New Class", new_klass_path, :class => "btn" %>
+    </div>
+  </div>
 </div>
 
 <div class="row">

@@ -1,9 +1,13 @@
-<h2><%= @teacher.name %></h2>
+<div class="row">
+  <h2 class="span8"><%= @teacher.name %></h2>
 
-<div class="btn-group pull-right">
-  <%= link_to "Edit Teacher", edit_teacher_path, :class => "btn btn-primary" %>
-  <%= link_to "List All", teachers_path, :class => "btn" %>
-  <%= link_to "New Teacher", new_teacher_path, :class => "btn" %>
+  <div class="span4">
+    <div class="btn-group pull-right">
+      <%= link_to "Edit Teacher", edit_teacher_path, :class => "btn btn-primary" %>
+      <%= link_to "List All", teachers_path, :class => "btn" %>
+      <%= link_to "New Teacher", new_teacher_path, :class => "btn" %>
+    </div>
+  </div>
 </div>
 
 <div class="row">

@@ -1,1 +1,18 @@
-<div class="container"></div>
+<div class="container">
+
+  <div class="navbar navbar-inverse">
+    <div class="navbar-inner">
+
+        <h1 class="brand"><%= link_to "Scholar", root_path %></h1>
+
+        <ul class="nav">
+          <%= nav_link_to "Dashboard", root_path %>
+          <%= nav_link_to "Classes", klasses_path, :match => :first %>
+          <%= nav_link_to "Teachers", teachers_path, :match => :first %>
+          <%= nav_link_to "Students", students_path, :match => :first %>
+        </ul>
+
+    </div>
+  </div>
+
+</div>

@@ -1,8 +1,14 @@
-<h2>Edit Teacher</h2>
+<div class="row">
+  <h2 class="span8">Edit Teacher</h2>
 
-<div class="btn-group pull-right">
-  <%= link_to 'List All', teachers_path, :class => "btn" %>
-  <%= link_to 'New Teacher', new_teacher_path, :class => "btn" %>
+  <div class="span4">
+    <div class="btn-group pull-right">
+      <%= link_to 'List All', teachers_path, :class => "btn" %>
+      <%= link_to 'New Teacher', new_teacher_path, :class => "btn" %>
+    </div>
+  </div>
 </div>
+
+<hr>
 
 <%= render "form" %>

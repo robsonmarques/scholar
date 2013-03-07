@@ -1,19 +1,18 @@
-<div class="span12">
-  <%= simple_form_for @klass, :html => { :class => 'form-horizontal' } do |f| %>
-    <%= f.input :name %>
-    <%= f.input :shift %>
-    <%= f.input :term %>
-    <%= f.input :year %>
+<%= simple_form_for @klass, :html => { :class => 'form-horizontal' } do |f| %>
+  <%= f.input :name %>
+  <%= f.input :shift, :collection => shift_types, :prompt => "Select..." %>
+  <%= f.input :term %>
+  <%= f.input :year, :collection => 1900..2900, :prompt => "Select..." %>
 
-    <fieldset>
-      <%= f.simple_fields_for :subjects do |a| %>
-        <%= a.input :name %>
-        <%= a.input :teacher %>
-      <% end %>
-    </fieldset>
+  <fieldset>
+    <%= f.simple_fields_for :subjects do |a| %>
+      <%= a.input :name %>
+      <%= a.input :teacher %>
+    <% end %>
+  </fieldset>
 
-    <div class="alert alert-box">
-      <%= f.button :submit, :value => "Save", :class => "btn btn-primary" %>
-    </div>
-  <% end %>
-</div>
+  <div class="alert alert-info">
+    <%= f.button :submit, :value => "Save", :class => "btn btn-primary" %>
+    <%= submit_tag 'Cancel', :type => :reset, :class => "btn btn-danger" %>
+  </div>
+<% end %>
