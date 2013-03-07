@@ -8,4 +8,6 @@ class Klass < ActiveRecord::Base
   validates :name, :presence => true
   validates :shift, :inclusion => %w{morning afternoon evening}, :allow_blank => true
   validates :year, :format => /(19|20)\d{2}/
+
+  accepts_nested_attributes_for :subjects, :reject_if => :all_blank, :allow_destroy => true
 end

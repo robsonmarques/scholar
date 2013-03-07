@@ -1,0 +1,11 @@
+one:
+  name: Algebra
+  field: Mathematics
+  klass: 1
+  teacher: 1
+
+two:
+  name: Natural History
+  field: History
+  klass: 2
+  teacher: 2
