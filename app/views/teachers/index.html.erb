@@ -1,0 +1,44 @@
+<h2>Teachers</h2>
+
+<%= link_to 'New Teacher', new_teacher_path, :class => "btn btn-primary pull-right" %>
+
+<div class="row">
+  <div class="span12">
+    <% if @teachers.empty? %>
+      <h3>Teachers not found</h3>
+      <h4>Register a <%= link_to 'New Teacher', new_teacher_path %></h4>
+    <% else %>
+      <table class="table-hover">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Gender</th>
+            <th>Email</th>
+            <th style="width: 70px;"></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @teachers.each do |teacher| %>
+            <tr>
+              <td><%= teacher.id %></td>
+              <td><%= link_to teacher.name, teacher %></td>
+              <td><%= teacher.age %></td>
+              <td><%= teacher.gender %></td>
+              <td><%= teacher.email %></td>
+              <td>
+                <div class="actions">
+                  <%= link_to 'View', teacher %>
+                  <%= link_to 'Edit', edit_teacher_path(teacher) %>
+                  <%= link_to 'Delete', teacher_path(teacher), :method => :delete, :data => { :confirm => 'Are you sure?' } %>
+                </div>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    <% end %>
+  </div>
+</div>
