@@ -5,10 +5,10 @@ class CreateStudents < ActiveRecord::Migration
       t.string :age
       t.string :gender
       t.string :email
-      t.references :class
+      t.references :klass
 
       t.timestamps
     end
-    add_index :students, :class_id
+    add_index :students, :klass_id
   end
 end

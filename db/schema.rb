@@ -18,11 +18,11 @@ ActiveRecord::Schema.define(:version => 20130306231417) do
     t.string   "age"
     t.string   "gender"
     t.string   "email"
-    t.integer  "class_id"
+    t.integer  "klass_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
 
-  add_index "students", ["class_id"], :name => "index_students_on_class_id"
+  add_index "students", ["klass_id"], :name => "index_students_on_klass_id"
 
 end
