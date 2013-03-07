@@ -9,7 +9,7 @@ class KlassTest < ActiveSupport::TestCase
   should accept_nested_attributes_for(:subjects).allow_destroy(true)
 
   should validate_presence_of(:name)
-  should allow_value("morning", "afternoon", "evening", "").for(:shift)
+  should ensure_inclusion_of(:shift).in_array(%w{morning afternoon evening})
   should_not allow_value("foo").for(:year)
   should allow_value("2013").for(:year)
 

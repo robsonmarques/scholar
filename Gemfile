@@ -22,5 +22,5 @@ group :assets do
 end
 
 gem 'jquery-rails'
-# gem 'bootstrap-sass', '~> 2.3.0.1'
-# gem 'simple_form',    '~> 2.0.4'
+gem 'bootstrap-sass', '~> 2.1.0.0'
+gem 'simple_form',    '~> 2.0.4'

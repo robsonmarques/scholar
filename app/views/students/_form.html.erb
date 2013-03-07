@@ -1,0 +1,12 @@
+<div class="span12">
+  <%= simple_form_for @student, :html => { :class => 'form-horizontal' } do |f| %>
+    <%= f.input :name %>
+    <%= f.input :age %>
+    <%= f.input :gender %>
+    <%= f.input :email %>
+
+    <div class="alert alert-box">
+      <%= f.button :submit, :value => "Save", :class => "btn btn-primary" %>
+    </div>
+  <% end %>
+</div>

@@ -1,5 +1,7 @@
 Scholar::Application.routes.draw do
 
-  root :to => 'dashboard#index'
+  root :to => 'students#index'
+
+  resources :students
 
 end
