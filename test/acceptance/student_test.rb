@@ -7,8 +7,8 @@ class StudentTest < ActionDispatch::IntegrationTest
       get students_path
     end
 
-    should "show the page title" do
-      assert_select 'h2', 'Students', 'Page without a title'
+    should "show the correct page title" do
+      assert_select 'h2', 'Students', 'Wrong page title or without a title'
     end
 
     should "show 'new student' button" do
@@ -36,7 +36,7 @@ class StudentTest < ActionDispatch::IntegrationTest
     end
 
     should "show the student name on title" do
-      assert_select 'h2', students(:one).name, 'Page without title with student name '
+      assert_select 'h2', students(:one).name, 'Page title is not student name or empty'
     end
 
     should "show 'edit student' button" do
@@ -61,8 +61,8 @@ class StudentTest < ActionDispatch::IntegrationTest
       get new_student_path
     end
 
-    should "show the page title" do
-      assert_select 'h2', 'New Student', 'Page without title'
+    should "show the correct page title" do
+      assert_select 'h2', 'New Student', 'Wrong page title or without a title'
     end
 
     should "show 'list all' button" do
@@ -79,8 +79,8 @@ class StudentTest < ActionDispatch::IntegrationTest
       get edit_student_path(students(:one))
     end
 
-    should "show the page title" do
-      assert_select 'h2', 'Edit Student', 'Page without title'
+    should "show the correct page title" do
+      assert_select 'h2', 'Edit Student', 'Wrong page title or without a title'
     end
 
     should "show 'list all' button" do
