@@ -1,6 +1,7 @@
 class Teacher < ActiveRecord::Base
-  has_many :subjects
-  has_many :klasses, :through => :subjects
+  has_many :schedules, :dependent => :destroy
+  has_many :subjects, :through => :schedules
+  has_many :klasses, :through => :schedules
 
   attr_accessible :age, :email, :gender, :name
 

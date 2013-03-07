@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130307174543) do
+ActiveRecord::Schema.define(:version => 20130307220551) do
 
   create_table "klasses", :force => true do |t|
     t.string   "name"
@@ -21,6 +21,16 @@ ActiveRecord::Schema.define(:version => 20130307174543) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  create_table "schedules", :force => true do |t|
+    t.integer  "klass_id"
+    t.integer  "subject_id"
+    t.integer  "teacher_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "schedules", ["klass_id", "subject_id", "teacher_id"], :name => "index_schedules_on_ids", :unique => true
 
   create_table "students", :force => true do |t|
     t.string   "name"
@@ -36,14 +46,11 @@ ActiveRecord::Schema.define(:version => 20130307174543) do
 
   create_table "subjects", :force => true do |t|
     t.string   "name"
-    t.integer  "klass_id"
-    t.integer  "teacher_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "area"
+    t.text     "content"
   end
-
-  add_index "subjects", ["klass_id"], :name => "index_subjects_on_klass_id"
-  add_index "subjects", ["teacher_id"], :name => "index_subjects_on_teacher_id"
 
   create_table "teachers", :force => true do |t|
     t.string   "name"

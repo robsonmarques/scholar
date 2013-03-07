@@ -1,0 +1,10 @@
+<%= simple_form_for @subject, :html => { :class => 'form-horizontal' } do |f| %>
+  <%= f.input :name %>
+  <%= f.input :area %>
+  <%= f.input :content %>
+
+  <div class="alert alert-info">
+    <%= f.button :submit, :value => "Save", :class => "btn btn-primary" %>
+    <%= submit_tag 'Cancel', :type => :reset, :class => "btn btn-danger" %>
+  </div>
+<% end %>

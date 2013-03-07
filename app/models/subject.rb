@@ -1,8 +1,9 @@
 class Subject < ActiveRecord::Base
-  belongs_to :klass
-  belongs_to :teacher
+  has_many :schedules, :dependent => :destroy
+  has_many :klasses, :through => :schedules
+  has_many :teachers, :through => :schedules
 
-  attr_accessible :name
+  attr_accessible :name, :area, :content
 
-  validates :name, :klass, :teacher, :presence => true
+  validates :name, :area, :presence => true
 end

@@ -1,0 +1,28 @@
+<div class="row">
+  <h2 class="span8"><%= @subject.name %></h2>
+
+  <div class="span4">
+    <div class="btn-group pull-right">
+      <%= link_to "Edit Subject", edit_subject_path, :class => "btn btn-primary" %>
+      <%= link_to "List All", subjects_path, :class => "btn" %>
+      <%= link_to "New Subject", new_subject_path, :class => "btn" %>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="span12">
+    <div class="well">
+      <h3>Details</h3>
+      <ul>
+        <li><strong>Area:</strong> <%= @subject.shift %></li>
+        <li><strong>Content:</strong> <%= @subject.term %></li>
+      </ul>
+      <div class="pull-right">
+        <span>Created at <%= @subject.created_at %></span>
+        <span>Updated at <%= @subject.updated_at %></span>
+      </div>
+    </div>
+  </div>
+</div>
+

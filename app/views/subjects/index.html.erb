@@ -1,0 +1,46 @@
+<div class="row">
+  <h2 class="span8">Subjects</h2>
+
+  <div class="span4">
+    <%= link_to 'New Subject', new_subject_path, :class => "btn btn-primary pull-right" %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="span12">
+    <% if @subjects.empty? %>
+      <h3>Subjects not found</h3>
+      <h4>Register a <%= link_to 'New Subject', new_subject_path %></h4>
+    <% else %>
+      <table class="table-hover">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Area</th>
+            <th>Content</th>
+            <th style="width: 70px;"></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @subjects.each do |subject| %>
+            <tr>
+              <td><%= subject.id %></td>
+              <td><%= link_to subject.name, subject %></td>
+              <td><%= subject.area %></td>
+              <td><%= subject.content %></td>
+              <td>
+                <div class="actions">
+                  <%= link_to 'View', subject %>
+                  <%= link_to 'Edit', edit_subject_path(subject) %>
+                  <%= link_to 'Delete', subject_path(subject), :method => :delete, :data => { :confirm => 'Are you sure?' } %>
+                </div>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    <% end %>
+  </div>
+</div>

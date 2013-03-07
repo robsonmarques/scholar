@@ -1,9 +1,9 @@
 one:
   name: Algebra
-  klass: 1
-  teacher: 1
+  area: Mathematics
+  content: A lot of numbers
 
 two:
   name: Natural History
-  klass: 2
-  teacher: 2
+  area: History
+  content: Some dead animals

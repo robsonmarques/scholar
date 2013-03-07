@@ -2,8 +2,9 @@ require 'test_helper'
 
 class TeacherTest < ActiveSupport::TestCase
 
-  should have_many(:subjects)
-  should have_many(:klasses).through(:subjects)
+  should have_many(:schedules).dependent(:destroy)
+  should have_many(:subjects).through(:schedules)
+  should have_many(:klasses).through(:schedules)
 
   should validate_presence_of(:name)
   should ensure_inclusion_of(:age).in_range(1..100)
