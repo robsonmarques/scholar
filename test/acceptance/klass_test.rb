@@ -2,12 +2,6 @@ require 'test_helper'
 
 class KlassTest < ActionDispatch::IntegrationTest
 
-  # Visit Classes index:
-  # see the list of all classes
-  # click on the New Class button
-  # select one class to edit
-  # mark one class to delete
-
   context "Visit classes index" do
     setup do
       get klasses_path
@@ -60,6 +54,10 @@ class KlassTest < ActionDispatch::IntegrationTest
     should "list all class attributes" do
       assert_select 'ul li', true, 'Page without attributes list'
     end
+
+    should "show the teachers and subjects of class" do
+      assert_select 'li', { :minimum => 4 }, 'Wrong number of attributes for class'
+    end
   end
 
   context "Visit class new" do
@@ -77,6 +75,10 @@ class KlassTest < ActionDispatch::IntegrationTest
 
     should "show a form to input new class" do
       assert_select 'form', true, 'Page without form'
+    end
+
+    should "allow input subjects for the class and respective teachers" do
+      assert_select 'fieldset select', { :minimum => 2 }, 'Wrong number of form fields'
     end
   end
 

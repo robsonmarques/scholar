@@ -1,14 +1,19 @@
-<%= simple_form_for @klass, :html => { :class => 'form-horizontal' } do |f| %>
+<%= simple_nested_form_for @klass, :html => { :class => 'form-horizontal' } do |f| %>
   <%= f.input :name %>
   <%= f.input :shift, :collection => shift_types, :prompt => "Select..." %>
   <%= f.input :term %>
   <%= f.input :year, :collection => 1900..2900, :prompt => "Select..." %>
 
   <fieldset>
-    <%= f.simple_fields_for :subjects do |a| %>
-      <%= a.input :name %>
-      <%= a.input :teacher %>
+    <legend>Subjects</legend>
+    <%= f.simple_fields_for :schedules do |a| %>
+      <%= a.input :subject do %>
+        <%= a.input_field :subject_id, :collection => Subject.all, :prompt => "Select a subject" %>
+        <%= a.input_field :teacher_id, :collection => Teacher.all, :prompt => "Select a teacher" %>
+        <%= a.link_to_remove "Remove this subject" %>
+      <% end %>
     <% end %>
+    <p class="clearfix"><%= f.link_to_add "Add subject", :schedules, :class => "btn btn-success pull-right" %></p>
   </fieldset>
 
   <div class="alert alert-info">

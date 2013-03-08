@@ -18,6 +18,9 @@
         <li><strong>Shift:</strong> <%= @klass.shift %></li>
         <li><strong>Term:</strong> <%= @klass.term %></li>
         <li><strong>Year:</strong> <%= @klass.year %></li>
+        <% @klass.schedules.each do |schedule| %>
+          <li><%= schedule.teacher %> - <%= schedule.subject %></li>
+        <% end %>
       </ul>
       <div class="pull-right">
         <span>Created at <%= @klass.created_at %></span>

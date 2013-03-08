@@ -10,6 +10,7 @@ class KlassesController < ApplicationController
 
   def new
     @klass = Klass.new
+    @klass.schedules.build
   end
 
   def edit

@@ -1,8 +1,8 @@
 Scholar::Application.routes.draw do
 
-  get "dashboard/index"
-
   root :to => 'dashboard#index'
+
+  match 'dashboard' => 'dashboard#index', :as => :dashboard
 
   resources :klasses, :path => 'classes'
   resources :subjects

@@ -8,6 +8,13 @@
       <h4>Start by registering a <%= link_to 'New Teacher', new_teacher_path %></h4>
     <% else %>
 
+      <ul class="nav nav-tabs">
+        <%= nav_link_to "Classes", dashboard_path(:tab => :classes) %>
+        <%= nav_link_to "Teachers", dashboard_path(:tab => :teachers) %>
+      </ul>
+
+      <ul class="nav nav-pills"></ul>
+
       <table class="table-hover">
         <thead>
           <tr>
