@@ -1,1 +1,5 @@
 == Welcome to Scholar
+
+This is only a experimental app. Enjoy.
+
+Demo running on http://schlr.herokuapp.com/
