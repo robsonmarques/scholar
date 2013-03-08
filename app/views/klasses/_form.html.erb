@@ -2,7 +2,7 @@
   <%= f.input :name %>
   <%= f.input :shift, :collection => shift_types, :prompt => "Select..." %>
   <%= f.input :term %>
-  <%= f.input :year, :collection => 1900..2900, :prompt => "Select..." %>
+  <%= f.input :year, :collection => 1900..2099, :prompt => "Select..." %>
 
   <fieldset>
     <legend>Subjects</legend>
@@ -18,6 +18,6 @@
 
   <div class="alert alert-info">
     <%= f.button :submit, :value => "Save", :class => "btn btn-primary" %>
-    <%= submit_tag 'Cancel', :type => :reset, :class => "btn btn-danger" %>
+    <%= submit_tag 'Reset', :type => :reset, :class => "btn btn-danger" %>
   </div>
 <% end %>

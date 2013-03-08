@@ -12,7 +12,7 @@
       <h3>Students not found</h3>
       <h4>Register a <%= link_to 'New Student', new_student_path %></h4>
     <% else %>
-      <table class="table-hover">
+      <table class="table table-striped">
         <thead>
           <tr>
             <th>#</th>
@@ -21,7 +21,7 @@
             <th>Gender</th>
             <th>Email</th>
             <th>Class</th>
-            <th style="width: 70px;"></th>
+            <th style="width: 130px;"></th>
           </tr>
         </thead>
 
@@ -33,7 +33,7 @@
               <td><%= student.age %></td>
               <td><%= student.gender %></td>
               <td><%= student.email %></td>
-              <td><%= student.klass %></td>
+              <td><%= student.klass.name %></td>
               <td>
                 <div class="actions">
                   <%= link_to 'View', student %>

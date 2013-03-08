@@ -35,6 +35,10 @@ class DashboardTest < ActionDispatch::IntegrationTest
         assert_select 'a', 'Teachers', 'Page without tab Teachers'
       end
 
+      should "list subjects for the class" do
+        assert_select 'div.well ul ul li', true, 'Page without list for subjects'
+      end
+
       should "list students" do
         assert_select 'table tbody tr', true, 'Page without tabular data'
       end

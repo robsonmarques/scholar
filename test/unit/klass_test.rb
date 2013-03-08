@@ -15,4 +15,10 @@ class KlassTest < ActiveSupport::TestCase
   should_not allow_value("foo").for(:year)
   should allow_value("2013").for(:year)
 
+  should allow_mass_assignment_of(:name)
+  should allow_mass_assignment_of(:shift)
+  should allow_mass_assignment_of(:term)
+  should allow_mass_assignment_of(:year)
+  should allow_mass_assignment_of(:schedules_attributes)
+
 end

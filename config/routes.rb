@@ -1,6 +1,6 @@
 Scholar::Application.routes.draw do
 
-  root :to => 'dashboard#index'
+  root :to => 'welcome#index'
 
   match 'dashboard' => 'dashboard#index', :as => :dashboard
 

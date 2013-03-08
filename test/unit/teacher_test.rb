@@ -12,4 +12,9 @@ class TeacherTest < ActiveSupport::TestCase
   should_not allow_value("foo").for(:email)
   should allow_value("foo@bar.com").for(:email)
 
+  should allow_mass_assignment_of(:name)
+  should allow_mass_assignment_of(:age)
+  should allow_mass_assignment_of(:gender)
+  should allow_mass_assignment_of(:email)
+
 end

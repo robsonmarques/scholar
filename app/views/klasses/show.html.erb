@@ -13,19 +13,20 @@
 <div class="row">
   <div class="span12">
     <div class="well">
-      <h3>Details</h3>
       <ul>
         <li><strong>Shift:</strong> <%= @klass.shift %></li>
         <li><strong>Term:</strong> <%= @klass.term %></li>
         <li><strong>Year:</strong> <%= @klass.year %></li>
-        <% @klass.schedules.each do |schedule| %>
-          <li><%= schedule.teacher %> - <%= schedule.subject %></li>
-        <% end %>
+        <li><strong>Subjects:</strong></li>
+        <ul>
+          <% @klass.schedules.each do |schedule| %>
+            <li><strong><%= schedule.subject.name %>:</strong> <%= schedule.teacher.name %></li>
+          <% end %>
+        </ul>
       </ul>
-      <div class="pull-right">
-        <span>Created at <%= @klass.created_at %></span>
-        <span>Updated at <%= @klass.updated_at %></span>
-      </div>
+    </div>
+    <div class="pull-right">
+      <small>Created at <%= @klass.created_at %></small> | <small>Updated at <%= @klass.updated_at %></small>
     </div>
   </div>
 </div>

@@ -10,4 +10,8 @@ class SubjectTest < ActiveSupport::TestCase
   should validate_presence_of(:area)
   should_not validate_presence_of(:content)
 
+  should allow_mass_assignment_of(:name)
+  should allow_mass_assignment_of(:area)
+  should allow_mass_assignment_of(:content)
+
 end

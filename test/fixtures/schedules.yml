@@ -1,9 +1,9 @@
 one:
-  klass: 1
-  subject: 1
-  teacher: 1
+  klass: one
+  subject: one
+  teacher: one
 
 two:
-  klass: 2
-  subject: 2
-  teacher: 2
+  klass: two
+  subject: two
+  teacher: two

@@ -3,11 +3,11 @@ one:
   age: 16
   gender: male
   email: john.doe@email.com
-  klass_id: 1
+  klass: one
 
 two:
   name: Mary Anne
   age: 15
   gender: female
   email: mary.anne@email.com
-  klass_id: 2
+  klass: two

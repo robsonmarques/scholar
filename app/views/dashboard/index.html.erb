@@ -3,49 +3,82 @@
 <div class="row">
   <div class="span12">
 
-    <% if @klasses.empty? %>
+    <% if empty_list @klasses %>
       <h3>Welcome to Scholar</h3>
       <h4>Start by registering a <%= link_to 'New Teacher', new_teacher_path %></h4>
     <% else %>
 
       <ul class="nav nav-tabs">
-        <%= nav_link_to "Classes", dashboard_path(:tab => :classes) %>
-        <%= nav_link_to "Teachers", dashboard_path(:tab => :teachers) %>
+        <%= nav_link_to "Classes", "#class_filters", :'data-toggle' => "tab", :wrap_class => active_for(:class, true) %>
+        <%= nav_link_to "Teachers", "#teacher_filters", :'data-toggle' => "tab", :wrap_class => active_for(:teacher) %>
       </ul>
+      <div class="tab-content">
+        <div id="class_filters" class="tab-pane fade <%= active_for(:class, true) %>">
+          <ul class="nav nav-pills">
+            <% @klasses_pills.each do |klass| %>
+              <%= nav_link_to klass.name, dashboard_path(:class => klass.id), :match => :fullpath %>
+            <% end %>
+          </ul>
+        </div>
+        <div id="teacher_filters" class="tab-pane fade <%= active_for(:teacher) %>">
+          <ul class="nav nav-pills">
+            <% @teachers_pills.each do |teacher| %>
+              <%= nav_link_to teacher.name, dashboard_path(:teacher => teacher.id), :match => :fullpath %>
+            <% end %>
+          </ul>
+        </div>
+      </div>
 
-      <ul class="nav nav-pills"></ul>
+      <% @klasses.each do |klass| %>
+        <h3 data-toggle="collapse" data-target="#collpase_<%= klass.id %>"><%= klass.name %></h3>
 
-      <table class="table-hover">
-        <thead>
-          <tr>
-            <th>#</th>
-            <th>Name</th>
-            <th>Shift</th>
-            <th>Term</th>
-            <th>Year</th>
-            <th style="width: 70px;"></th>
-          </tr>
-        </thead>
+        <div id="collpase_<%= klass.id %>" class="collapse in">
+          <div class="well">
+            <ul class="unstyled">
+              <li><strong>Shift:</strong> <%= klass.shift %></li>
+              <li><strong>Term:</strong> <%= klass.term %></li>
+              <li><strong>Year:</strong> <%= klass.year %></li>
+              <li><strong>Subjects:</strong></li>
+              <ul>
+              <% klass.schedules.each do |schedule| %>
+                <li><strong><%= schedule.subject.name %>:</strong> <%= schedule.teacher.name %></li>
+              <% end %>
+              </ul>
+            </ul>
+          </div>
+        </div>
 
-        <tbody>
-          <% @klasses.each do |klass| %>
+        <table class="table table-striped">
+          <thead>
             <tr>
-              <td><%= klass.id %></td>
-              <td><%= link_to klass.name, klass %></td>
-              <td><%= klass.shift %></td>
-              <td><%= klass.term %></td>
-              <td><%= klass.year %></td>
-              <td>
-                <div class="actions">
-                  <%= link_to 'View', klass %>
-                  <%= link_to 'Edit', edit_klass_path(klass) %>
-                  <%= link_to 'Delete', klass_path(klass), :method => :delete, :data => { :confirm => 'Are you sure?' } %>
-                </div>
-              </td>
+              <th>#</th>
+              <th>Name</th>
+              <th>Age</th>
+              <th>Gender</th>
+              <th>Email</th>
+              <th style="width: 130px;"></th>
             </tr>
-          <% end %>
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            <% klass.students.each do |student| %>
+              <tr>
+                <td><%= student.id %></td>
+                <td><%= link_to student.name, student %></td>
+                <td><%= student.age %></td>
+                <td><%= student.gender %></td>
+                <td><%= student.email  %></td>
+                <td>
+                  <div class="actions">
+                    <%= link_to 'View', student %>
+                    <%= link_to 'Edit', edit_student_path(student) %>
+                    <%= link_to 'Delete', student_path(student), :method => :delete, :data => { :confirm => 'Are you sure?' } %>
+                  </div>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      <% end %>
 
     <% end %>
   </div>
